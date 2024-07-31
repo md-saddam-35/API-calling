@@ -1,0 +1,151 @@
+
+console.clear();
+//getdata
+const getData = document.getElementById("get");
+
+const makrequst = ((mathod,url) => {
+    getData.addEventListener("click", () => {
+        let xhr = new XMLHttpRequest();
+        xhr.open(mathod,url);
+        xhr.onload = () => {
+            let data = xhr.response;
+            data = JSON.parse(data);
+            console.log(data);
+        }
+        xhr.onerror = () => {
+            (console.log("error"));
+        }
+        xhr.send();
+    })
+ });
+
+const  calling_GETDATA = ((url,mathod)=>{
+makrequst("GET", 'https://jsonplaceholder.typicode.com/posts')
+
+});
+calling_GETDATA();
+
+
+// send data function/////////////////////////////////////////////
+
+const senddata = document.getElementById("send");
+const makrequst2 = ((mathod,url,data) => {
+    senddata.addEventListener("click", () => {
+        let xhr = new XMLHttpRequest();
+        xhr.open(mathod,url);
+        xhr.setRequestHeader('content-type','application/json')
+        xhr.onload = () => {
+            let data = xhr.response;
+            data = JSON.parse(data);
+            console.log(data);
+        }
+        xhr.onerror = () => {
+            (console.log("error"));
+        }
+         xhr.send(JSON.stringify(data));
+    })
+ });
+const  calling_POSTDATA2 = ((url,mathod)=>{
+makrequst2("POST", 'https://jsonplaceholder.typicode.com/posts',{ 
+    title: 'foo',
+    body: 'bar',
+    userId: 1,}
+    
+)
+
+});
+calling_POSTDATA2();
+/// PUTdata function
+
+const putdata = document.getElementById("put");
+
+const makrequst3 = ((mathod,url,data) => {
+    putdata.addEventListener("click", () => {
+        let xhr = new XMLHttpRequest();
+        xhr.open(mathod,url);
+        xhr.setRequestHeader('content-type','application/json')
+        xhr.onload = () => {
+            let data = xhr.response;
+            data = JSON.parse(data);
+            console.log(data);
+        }
+        xhr.onerror = () => {
+            (console.log("error"));
+        }
+         xhr.send(JSON.stringify(data));
+    })
+ });
+
+const  calling_putDATA3 = ((url,mathod,data)=>{
+makrequst3("PUT", 'https://jsonplaceholder.typicode.com/posts/1',{
+    id: 1,
+    title: 'fooma',
+    body: 'barma',
+    userId: 1,
+});
+});
+calling_putDATA3();
+// fatch data function 
+
+const patch_data = document.getElementById("patch");
+
+const makrequst4 = ((mathod,url,data) => {
+    patch_data.addEventListener("click", () => {
+        let xhr = new XMLHttpRequest();
+        xhr.open(mathod,url);
+        xhr.setRequestHeader('content-type','application/json')
+        xhr.onload = () => {
+            let data = xhr.response;
+            data = JSON.parse(data);
+            console.log(data);
+        }
+        xhr.onerror = () => {
+            (console.log("error"));
+        }
+         xhr.send(JSON.stringify(data));
+    })
+ });
+
+const  calling_patchDATA = ((url,mathod,data)=>{
+makrequst4("PATCH", 'https://jsonplaceholder.typicode.com/posts/1',{
+    
+    title: 'title is change',
+    body:  'fo'
+});
+});
+calling_patchDATA();
+
+// delete data function 
+
+
+const delete_data = document.getElementById("delete");
+
+const makrequst5 = ((mathod,url,data) => {
+    patch_data.addEventListener("click", () => {
+        let xhr = new XMLHttpRequest();
+        xhr.open(mathod,url);
+        xhr.setRequestHeader('content-type','application/json')
+        xhr.onload = () => {
+            let data = xhr.response;
+            data = JSON.parse(data);
+            console.log(data);
+        }
+        xhr.onerror = () => {
+            (console.log("error"));
+        }
+         xhr.send(JSON.stringify(data));
+    })
+ });
+
+const  calling_deleteDATA = ((url,mathod,data)=>{
+makrequst5("DELETE", 'https://jsonplaceholder.typicode.com/posts/1',{
+    
+    title: 'title is change',
+    body:  'fo'
+});
+});
+calling_deleteDATA();
+
+
+
+
